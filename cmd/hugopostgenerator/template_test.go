@@ -1,6 +1,8 @@
 package hugopostgenerator
 
 import (
+	"github.com/stretchr/testify/assert"
+	"log"
 	"testing"
 	"time"
 )
@@ -47,7 +49,17 @@ func TestCreateTemplate(t *testing.T) {
 		Content: "Some long content in markdown",
 	}
 
+	c, err := NewClient(&ClientOptions{
+		PostFolder:  "content/",
+		ImageFolder: "",
+	})
+	if err != nil {
+		log.Panicln(err)
+	}
+
 	t.Run("create template", func(t *testing.T) {
-		createTemplate(td)
+		err := c.GeneratePost(td, "test-post")
+
+		assert.Empty(t, err)
 	})
 }

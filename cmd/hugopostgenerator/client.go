@@ -2,25 +2,35 @@ package hugopostgenerator
 
 import (
 	"embed"
-	"github.com/rs/zerolog"
+	"errors"
 	"os"
-	"time"
+	"path/filepath"
 )
 
 //go:embed templates
 var fs embed.FS
-var logger zerolog.Logger
 
-func NewClient() {
+type ClientOptions struct {
+	PostFolder  string
+	ImageFolder string
+}
 
-	logger = zerolog.New(zerolog.ConsoleWriter{
-		Out:        os.Stdout,
-		TimeFormat: time.RFC3339,
-	}).With().Timestamp().Caller().Logger()
+type Client struct {
+	postFolder string
+}
 
-	//notionClient, err := notionclient.NewClient()
-	//if err != nil {
-	//	logger.Error().Err(err).Send()
-	//}
+func NewClient(opt *ClientOptions) (*Client, error) {
 
+	c := &Client{}
+
+	postFolder := opt.PostFolder
+	if filepath.IsAbs(postFolder) {
+		return nil, errors.New("post folder path must be relative")
+	}
+	if _, err := os.Stat(postFolder); errors.Is(err, os.ErrNotExist) {
+		return nil, errors.New("post folder must exist")
+	}
+	c.postFolder = postFolder
+
+	return c, nil
 }
