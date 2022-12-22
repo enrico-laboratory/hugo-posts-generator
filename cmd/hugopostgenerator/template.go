@@ -38,7 +38,7 @@ type Ticket struct {
 	Price       string
 }
 
-func (c *Client) GeneratePost(td *templateData, postName string) error {
+func (c *Client) GeneratePost(td *TemplateData, postName string) error {
 	tmpl, err := createTemplate(td)
 	if err != nil {
 		return err
@@ -54,7 +54,7 @@ func (c *Client) GeneratePost(td *templateData, postName string) error {
 	return nil
 }
 
-func createTemplate(td *templateData) (*template.Template, error) {
+func createTemplate(td *TemplateData) (*template.Template, error) {
 	tmpl, err := template.New("post").ParseFS(fs, filepath.Join(templatesPath, "post.tmpl"))
 	if err != nil {
 		return nil, err

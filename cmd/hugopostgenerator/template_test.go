@@ -32,7 +32,7 @@ func TestCreateTemplate(t *testing.T) {
 			Price:       "97E",
 		},
 	}
-	td := &templateData{
+	td := &TemplateData{
 		Date:          time.Now(),
 		Description:   "Test Description",
 		FeaturedImage: "test_image.jpeg",
