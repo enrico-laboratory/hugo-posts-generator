@@ -30,6 +30,7 @@ type Details struct {
 type Venue struct {
 	Name    string
 	Address string
+	City    string
 }
 
 type Ticket struct {

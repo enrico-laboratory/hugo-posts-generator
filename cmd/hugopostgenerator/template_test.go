@@ -13,6 +13,7 @@ func TestCreateTemplate(t *testing.T) {
 		Venue: Venue{
 			Name:    "Concert Venue Name",
 			Address: "Some address 43, 4536MK Amsterdam",
+			City:    "Fake city 1",
 		},
 		Ticket: Ticket{
 			Description: "Reserve Ticket",
@@ -25,6 +26,7 @@ func TestCreateTemplate(t *testing.T) {
 		Venue: Venue{
 			Name:    "Another concert Venue",
 			Address: "Another address 89 7824OP Utrecht",
+			City:    "Fake city 2",
 		},
 		Ticket: Ticket{
 			Description: "Buy ticket",

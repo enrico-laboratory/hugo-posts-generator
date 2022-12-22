@@ -10,7 +10,7 @@ title: {{.Title}}
 disable_share: false
 year: {{.Year}}
 details: [{{range .Details}}
-{date: {{ .Date.Format "2006-01-02T15:04:05-07:00"}}, venue: "{{.Venue.Name}}", address: "{{.Venue.Address}}", price: "{{.Ticket.Price}}", ticketText: "{{.Ticket.Description}}", ticketLink: "{{.Ticket.Link}}"},{{end}}
+{date: {{ .Date.Format "2006-01-02T15:04:05-07:00"}}, venue: "{{.Venue.Name}}", address: "{{.Venue.Address}}", city: "{{.Venue.City}}", price: "{{.Ticket.Price}}", ticketText: "{{.Ticket.Description}}", ticketLink: "{{.Ticket.Link}}"},{{end}}
 ]
 ---
 {{.Content}}
