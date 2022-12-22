@@ -12,6 +12,7 @@ const templatesPath = "templates"
 
 type TemplateData struct {
 	Date          time.Time
+	PublishDate   time.Time
 	Description   string
 	FeaturedImage string
 	Tags          []string
