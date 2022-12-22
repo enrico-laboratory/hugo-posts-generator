@@ -10,7 +10,7 @@ import (
 
 const templatesPath = "templates"
 
-type templateData struct {
+type TemplateData struct {
 	Date          time.Time
 	Description   string
 	FeaturedImage string
