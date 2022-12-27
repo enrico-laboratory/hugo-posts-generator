@@ -20,6 +20,7 @@ type TemplateData struct {
 	Year          string
 	Details       []Details
 	Content       string
+	Choir         string
 }
 
 type Details struct {
