@@ -1,16 +1,16 @@
 {{define "post"}}
 ---
 date: {{ .Date.Format "2006-01-02T15:04:05-07:00"}}
-description: {{.Description}}
-choir: {{.Choir}}
+description: "{{.Description}}"
+choir: "{{.Choir}}"
 featured_image: "/images/{{.FeaturedImage}}"
 publishDate: {{ .PublishDate.Format "2006-01-02T15:04:05-07:00"}}
 tags: [{{range .Tags}}
     {{.}},{{end}}
 ]
-title: {{.Title}}
+title: "{{.Title}}"
 disable_share: false
-year: {{.Year}}
+year: "{{.Year}}"
 details: [{{range .Details}}
 {date: {{ .Date.Format "2006-01-02T15:04:05-07:00"}}, venue: "{{.Venue.Name}}", address: "{{.Venue.Address}}", city: "{{.Venue.City}}", price: "{{.Ticket.Price}}", ticketText: "{{.Ticket.Description}}", ticketLink: "{{.Ticket.Link}}"},{{end}}
 ]
